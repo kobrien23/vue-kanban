@@ -7,6 +7,12 @@ let router = express.Router()
 let Boards = require("../models/board.js")
 
 
+router.get('/',function(req,res,next){
+     res.send({
+                message: "You have successfully got a board ",
+            })
+            next()
+})
 
 router.post('/board', (req, res) => {
 
@@ -25,3 +31,5 @@ router.post('/board', (req, res) => {
 
 
 })
+
+module.exports = router
