@@ -1,10 +1,13 @@
 import server from './config/dev-server'
 import boardRoute from './routes/board-route'
+import auth from './authentication/auth'
+
 let mongoose = require('mongoose')
 let connection = mongoose.connection;
 
 
 server.use(boardRoute)
+server.use(auth)
 
 // Establishes MongoDb Connection
 mongoose.connect(process.env.CONNECTIONSTRING, {

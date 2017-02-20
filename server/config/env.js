@@ -3,10 +3,10 @@ let env = {
 	NODE_ENV: 'development',
 	PORT: 3000,
 	DBPROTOCOL: 'mongodb',
-	DBUSERNAME: 'student',
-	DBPASSWORD: 'CodeWorksStudent',
-	DBHOST: 'ds056789.mlab.com:56789',
-	DBNAME: 'codeworks',
+	DBUSERNAME: 'JCL',
+	DBPASSWORD: 'sunfish',
+	DBHOST: 'ds064188.mlab.com:64188',
+	DBNAME: 'universe',
 	SERVERNAME: 'dev-server'
 }
 
@@ -26,3 +26,17 @@ env.CONNECTIONSTRING = `${env.DBPROTOCOL}://${env.DBUSERNAME}:${env.DBPASSWORD}@
 process.env.CONNECTIONSTRING = env.CONNECTIONSTRING
 
 exports = env
+
+
+
+// old notes from Jake
+// let env = {
+// 	NODE_ENV: 'development',
+// 	PORT: 3000,
+// 	DBPROTOCOL: 'mongodb',
+// 	DBUSERNAME: 'student',
+// 	DBPASSWORD: 'CodeWorksStudent',
+// 	DBHOST: 'ds056789.mlab.com:56789',
+// 	DBNAME: 'codeworks',
+// 	SERVERNAME: 'dev-server'
+// }
