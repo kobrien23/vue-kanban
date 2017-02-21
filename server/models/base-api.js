@@ -2,8 +2,8 @@ import { actions } from '../config/constants'
 
 export default API
 
-function API(modelName, schema) {
-  if (schema.preventDefaultApi) { return }
+function API(model, schema) {
+  if (model.preventDefaultApi) { return {} }
   return {
     get: get,
     post: create,
@@ -12,7 +12,7 @@ function API(modelName, schema) {
   }
 
   function get(req, res, next) {
-    console.log("requesting api ", modelName)
+    console.log("requesting api ", model.name)
     var id = req.params.id || req.query.id || '';
     var params = req.params.id ? req.params : {};
     var query = req.query.with || '';
@@ -91,7 +91,7 @@ function API(modelName, schema) {
 
   function handleResponse(action, data, error) {
     var response = {
-      schemaType: modelName,
+      schemaType: model.name,
       action: action,
       data: data
     }

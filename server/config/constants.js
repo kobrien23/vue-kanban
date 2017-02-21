@@ -7,8 +7,24 @@ const actions = {
 }
 
 const models = {
-  board: 'Board',
-  list: 'List'
+ board: {
+    name: 'Board',
+    endpoint: 'boards'
+  },
+  list: {
+    name: 'List',
+    endpoint: 'lists'
+  },
+  user: {
+    name: 'User',
+    endpoint: 'users',
+    preventDefaultApi: true,
+    useCustomRoutes: true
+  },
+  card: {
+    name: 'Card',
+    endpoint: 'cards'
+  }
 }
 
 
