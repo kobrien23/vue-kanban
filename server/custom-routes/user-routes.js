@@ -5,6 +5,7 @@ export default {
     path: '/userboard',
     reqType: 'get',
     method(req, res, next){
+      console.log("here!")
       let action = 'Find User Boards'
       Boards.find({creator: req.session.uid})
         .then(boards => {
@@ -12,8 +13,14 @@ export default {
         }).catch(error => {
           return next(handleResponse(action, null, error))
         })
-    }
+    }  
   }
+
+
+
+
+
+
 }
 
 
