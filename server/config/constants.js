@@ -24,6 +24,10 @@ const models = {
   card: {
     name: 'Card',
     endpoint: 'cards'
+  },
+  comment: {
+    name: 'Comment',
+    endpoint: 'comments'
   }
 }
 
