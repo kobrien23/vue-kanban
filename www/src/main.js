@@ -14,7 +14,7 @@ window.axios = axios.create({
 /* eslint-disable no-new */
 
 
-const store = {
+const store_old = {
   state: {
     user: {},
     boards: {
@@ -89,7 +89,7 @@ const store = {
 }
 
 new Vue({
-  el: '#app',
+  el: '#app', 
   router,
   data(){
     return store
