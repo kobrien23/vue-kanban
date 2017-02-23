@@ -4,7 +4,7 @@
        User Object: {{this.$root.$data.state.user}}
         <!--This is where the v-for goes for the boards-->
         <!--This is raw data: {{this.$root.$data.state.boards.data}}-->
-        <div class="board" v-for="board in this.$root.$data.state.boards.data">{{board.name}}</div>
+        <div class="board" v-for="board in this.$root.$data.state.boards">{{board.name}}</div>
     </ul>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
   },
   mounted: function(){
     // this.$root.$data.service.checkAuth()
+    this.$root.$data.service.initBoards()
   }
 }
 </script>

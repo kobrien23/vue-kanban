@@ -28,6 +28,10 @@ export default new Router({
       path: '/wall',
       name: 'Wall',
       component: Wall
-    }
+    },
+    {
+      path: '*',
+      redirect: '/login'
+    },
   ]
 })
