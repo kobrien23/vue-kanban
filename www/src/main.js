@@ -15,21 +15,21 @@ const store = {
   state: {
     user: {},
     boards: {
-"data": [
-    {
-      "_id": "58ab69a87fcec20524eca621",
-      "name": "board4",
-      "description": "test board1",
-      "__v": 0,
-      "created": 1487627974023
-    },
-    {
-      "_id": "58ab6aa77fcec20524eca622",
-      "name": "board2",
-      "description": "test board2",
-      "__v": 0,
-      "created": 1487627974023
-    }]
+// "data": [
+//     {
+//       "_id": "58ab69a87fcec20524eca621",
+//       "name": "board4",
+//       "description": "test board1",
+//       "__v": 0,
+//       "created": 1487627974023
+//     },
+//     {
+//       "_id": "58ab6aa77fcec20524eca622",
+//       "name": "board2",
+//       "description": "test board2",
+//       "__v": 0,
+//       "created": 1487627974023
+//     }]
     },
     board: {},
 
@@ -62,14 +62,14 @@ const store = {
     initAuth: function(){
       axios.get('/authenticate').then(function(res){
         console.log(res)
-        debugger
+        
         store.state.user= res.data.data
-        debugger
+        
         
       }).catch(function(error){
                router.push('/login/')
 
-        debugger
+        
       })
     },
       registerUser: function(email, password, name) {
@@ -78,17 +78,24 @@ const store = {
         password: password,
         name: name
       } 
-      debugger
+      
       axios.post('/register/', user).then(function(res){
-        debugger
+        
         store.state.user= res.data.data
-        debugger
+        
         
       }).catch(function(error){
-        debugger
+        
+        console.log(error)
       })
     },
-
+    initBoards: function(){
+      axios.get('/boards').then(function(res){
+        store.state.boards=res.data.data
+      }).catch(function(error){
+        console.log(error)
+      })
+    }
 
   },
 }
