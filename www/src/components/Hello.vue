@@ -32,6 +32,9 @@ export default {
     return {
       msg: 'Welcome to Your Kanban Web App'
     }
+  },
+  mounted: function(){
+    this.$root.$data.service.checkAuth()
   }
 }
 </script>

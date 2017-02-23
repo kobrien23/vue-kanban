@@ -30,7 +30,7 @@ server.use(session)
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use('*', logger)
-server.use(Auth)
+server.use('/', cors(corsOptions),Auth)
 
 // LOCKS API TO REQUIRE USER AUTH
 server.use(Validate)

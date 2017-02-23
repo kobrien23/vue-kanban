@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 
 window.axios = axios.create({
-  baseURL: 'https://localhost:3000/api/',
+  baseURL: 'http://localhost:3000/api/',
   timeout: 1000,
   headers: {'X-Custom-Header': 'foobar'}
 });
@@ -25,22 +25,50 @@ const store = {
         password: password
       }
       axios.post('/login/', user)
+      .then(function(res){
+        store.state.user=res.data.data
+      }).catch(function(error){
+        console.error(error)
+      })
     },
     getUser: function(){
       return store.state.user
     },
-    getAuth: function(){
-      return !!store.state.user._id  // this only returns true or false if htey are logged in
+    checkAuth: function(){
+     if (!!store.state.user._id){
+       return true
+     } else {
+       router.push('/login/')
+       return false
+     }
+      // this only returns true or false if htey are logged in
     },
-      registerUser: function(email, password) {
+    initAuth: function(){
+      axios.get('/authenticate').then(function(res){
+        debugger
+        store.state.user= res.data.data
+        debugger
+        
+      }).catch(function(error){
+               router.push('/login/')
+
+        debugger
+      })
+    },
+      registerUser: function(email, password, name) {
        let user= {
         email: email,
-        password: password
-      }
+        password: password,
+        name: name
+      } 
+      debugger
       axios.post('/register/', user).then(function(res){
-        store.state.user={
-          
-        }
+        debugger
+        store.state.user= res.data.data
+        debugger
+        
+      }).catch(function(error){
+        debugger
       })
     },
 
