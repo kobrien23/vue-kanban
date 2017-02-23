@@ -9,7 +9,7 @@ router.post('/api/register', (req, res) => {
       user.password = null
       delete user.password
       res.send({
-        message: 'Successfully created user account',
+        message: 'Successfully created user account', 
         data: user
       })
     })
