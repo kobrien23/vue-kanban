@@ -18,7 +18,7 @@ let defaultErrorHandler = (err, req, res, next) => {
 			error: err.message,
 		}
 	}
-	res.send(error);
+	res.status(400).send(error);
 }
 
 //Default Urls 

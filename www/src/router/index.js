@@ -4,6 +4,7 @@ import Hello from 'components/Hello'
 import Login from 'components/Login'
 import Register from 'components/Register'
 import Wall from 'components/Wall'
+import AddBoard from 'components/AddBoard'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/wall',
       name: 'Wall',
       component: Wall
+    },
+    {
+      path: '/AddBoard',
+      name: 'AddBoard',
+      component: AddBoard
     },
              {
       path: '*',

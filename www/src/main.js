@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 window.axios = axios.create({
   baseURL: 'http://localhost:3000/api/',
@@ -11,25 +12,12 @@ window.axios = axios.create({
 });
 
 /* eslint-disable no-new */
+
+
 const store = {
   state: {
     user: {},
     boards: {
-// "data": [
-//     {
-//       "_id": "58ab69a87fcec20524eca621",
-//       "name": "board4",
-//       "description": "test board1",
-//       "__v": 0,
-//       "created": 1487627974023
-//     },
-//     {
-//       "_id": "58ab6aa77fcec20524eca622",
-//       "name": "board2",
-//       "description": "test board2",
-//       "__v": 0,
-//       "created": 1487627974023
-//     }]
     },
     board: {},
 
@@ -109,3 +97,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+ 
