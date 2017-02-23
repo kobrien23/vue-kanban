@@ -1,6 +1,8 @@
 <template>
 
 <div class="login-container">
+<img src="./../assets/logo.png">
+
 Hello
 
 <form @submit.prevent="login" >
@@ -35,7 +37,7 @@ export default {
   methods: {
       login: function(){
         debugger
-          // this.$root.$data.service.loginUser(this.email, this.password)
+          this.$root.$data.service.loginUser(this.email, this.password)
       }
   }
 }

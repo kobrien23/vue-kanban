@@ -14,7 +14,23 @@ window.axios = axios.create({
 const store = {
   state: {
     user: {},
-    boards: {},
+    boards: {
+"data": [
+    {
+      "_id": "58ab69a87fcec20524eca621",
+      "name": "board4",
+      "description": "test board1",
+      "__v": 0,
+      "created": 1487627974023
+    },
+    {
+      "_id": "58ab6aa77fcec20524eca622",
+      "name": "board2",
+      "description": "test board2",
+      "__v": 0,
+      "created": 1487627974023
+    }]
+    },
     board: {},
 
   },
@@ -45,6 +61,7 @@ const store = {
     },
     initAuth: function(){
       axios.get('/authenticate').then(function(res){
+        console.log(res)
         debugger
         store.state.user= res.data.data
         debugger

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from 'components/Hello'
 import Login from 'components/Login'
 import Register from 'components/Register'
+import Wall from 'components/Wall'
 
 Vue.use(Router)
 
@@ -23,5 +24,10 @@ export default new Router({
       name: 'Hello',
       component: Hello
     },
+         {
+      path: '/wall',
+      name: 'Wall',
+      component: Wall
+    }
   ]
 })
