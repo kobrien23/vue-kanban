@@ -28,8 +28,8 @@ export default {
       name: 'login',
   data () {
     return {
-      email: '',
-      password: ''
+      email: 'example@example.com',
+      password: 'example'
       
 
     }
