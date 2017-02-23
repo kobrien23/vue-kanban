@@ -26,8 +26,8 @@ export default {
       name: 'login',
   data () {
     return {
-      email: '',
-      password: ''
+      email: 'example@example.com',
+      password: 'example'
       
 
     }
@@ -35,7 +35,7 @@ export default {
   methods: {
       login: function(){
         debugger
-          // this.$root.$data.service.loginUser(this.email, this.password)
+          this.$root.$data.service.loginUser(this.email, this.password)
       }
   }
 }
