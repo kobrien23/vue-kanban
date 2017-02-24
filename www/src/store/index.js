@@ -63,6 +63,7 @@ export default {
                 .catch(handleError)
         },
         removeBoard(board) {
+            console.log('inside of remove board method')
             api.delete('boards/' + board._id)
                 .then(res => {
                     this.getBoards()
