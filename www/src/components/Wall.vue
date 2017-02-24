@@ -1,17 +1,18 @@
 <template>
-  <div class="hello">
+  <div class="Wall">
     <h1>{{ msg }}</h1>
-       User Object: {{this.$root.$data.state.user}}
+        <!--<h1>User Object: {{this.$root.store.state.user}}</h1>-->
         <!--This is where the v-for goes for the boards-->
-        <!--This is raw data: {{this.$root.$data.state.boards.data}}-->
-        <div class="board" v-for="board in this.$root.$data.state.boards">{{board.name}}</div>
+        <!--This is raw data: {{this.$root.store.state.boards}}-->
+        <h4>Todo: Need to add button to create board here.</h4>
+        <div class="board" v-for="board in this.$root.store.state.boards"><router-link :to="'login'">{{board}}</router-link></div>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'wall',
   data () {
     return {
       msg: 'Welcome to The wall'
