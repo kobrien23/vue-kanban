@@ -57,6 +57,7 @@ router.delete('/api/logout', (req, res) => {
 
 
 router.get('/api/authenticate', (req,res) => {
+ console.log(req.session)
   Users.findById(req.session.uid).then(user => {
     return res.send ({
       data: user

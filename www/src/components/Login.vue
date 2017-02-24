@@ -36,8 +36,8 @@ export default {
   },
   methods: {
       login: function(){
-        debugger
-          this.$root.$data.service.loginUser(this.email, this.password)
+        console.log("in login user")
+          this.$root.$data.store.actions.loginUser(this.email, this.password)
       }
   }
 }

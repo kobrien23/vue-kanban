@@ -91,9 +91,7 @@ const store_old = {
 new Vue({
   el: '#app', 
   router,
-  data(){
-    return store
-  },
+  data: {store},
   template: '<App/>',
   components: { App }
 })

@@ -19,7 +19,8 @@ export default {
   },
   mounted: function(){
     // this.$root.$data.service.checkAuth()
-    this.$root.$data.service.initBoards()
+    this.$root.$data.store.actions.getBoards()
+
   }
 }
 </script>

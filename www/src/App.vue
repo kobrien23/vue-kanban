@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
+    <h1>This is the app file</h1>
     <router-view></router-view>
   </div>
 </template>
@@ -11,7 +12,7 @@
   export default {
     name: 'app',
     mounted: function () {
-      this.$root.$data.service.initAuth()
+    this.$root.$data.store.actions.initAuth()
     }
   }
 </script>
