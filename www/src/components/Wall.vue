@@ -4,9 +4,9 @@
     <!--<h1>User Object: {{this.$root.store.state.user}}</h1>-->
     <!--This is where the v-for goes for the boards-->
     <!--This is raw data: {{this.$root.store.state.boards}}-->
-    <h4>Todo: Need to add button to create board here.</h4>
+    <h4><router-link :to="'/addboard'">Create new board</router-link></h4>
     <div class="board" v-for="board in this.$root.store.state.boards">
-      <router-link :to="'boards/'+board._id">{{board.name}}</router-link>
+      <router-link :to="'/board/'+board._id">{{board.name}}</router-link>
       <span @click="$root.store.actions.removeBoard(board)">  x</span></li>
     </div>
     </ul>

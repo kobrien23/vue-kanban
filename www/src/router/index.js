@@ -40,10 +40,10 @@ export default new Router({
     {
       path: '/boards',
       name: 'Boards',
-      component: Boards
+      component: Wall
     },
     {
-      path: '/boards/:id',
+      path: '/board/:id',
       name: 'Board',
       component: Board
     },

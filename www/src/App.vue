@@ -2,6 +2,7 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <h1>This is the app file</h1>
+    <router-link :to="'/wall'"><button type="text">to the WALL?</button></router-link>
     <router-view></router-view>
   </div>
 </template>

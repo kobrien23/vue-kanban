@@ -4,13 +4,16 @@
 <form @submit.prevent="addBoard" >
 Board Name: <input type="text" v-model="boardName" required>
 <br>
-<button type="submit">Add Bboard</button>
+<button type="submit">Add Board</button>
 </form>
 
   </div>
 </template>
 
+
 <script>
+import router from './../router'
+
 export default {
   name: 'AddBoard',
   data () {
@@ -27,7 +30,7 @@ methods: {
   {
     console.log("Inside of the add board method with: ",this.boardName);
     this.$root.$data.store.actions.createBoard(this.boardName)
-
+     router.push('/wall/')
 
 }
 }

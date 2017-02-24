@@ -2,6 +2,8 @@
   <div> 
     <h1>You are in the individual board component</h1>
     <h3>Active Board: {{this.$root.store.state.activeBoard.name}}<h3>
+  
+  
   </div>
 </template>
 
