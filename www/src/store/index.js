@@ -19,6 +19,9 @@ let api = axios.create({
 let state = {
     user: {},
     boards: [],
+    cards:[],
+    lists:[],
+    activeLists:[],
     activeBoard: {},
     error: {}
 }
@@ -37,7 +40,7 @@ export default {
     //add board, edit board, delete task methods go here.
     //in the .then you update the state.
     actions: {
-
+        // board get methods
         getBoards() {
             console.log("in get boards in the new store")
             api.get('boards').then(res => {
@@ -86,6 +89,17 @@ export default {
 
 
             })
-        }
+        },
+        // start of list functions/methods
+        createList(id, obj) {
+            api.post('lists/', obj).then(res => {
+                state.activeLists.push(res.data.data)
+                console.log('activelists array', state.activeLists)
+            }).catch(handleError)
+        },
+    
+
+
+//bottom of actions
     }
 }
