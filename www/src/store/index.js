@@ -1,3 +1,5 @@
+// new_store-- in the store folder 
+
 import axios from 'axios'
 
 let api = axios.create({
@@ -5,7 +7,10 @@ let api = axios.create({
     timeout: 3000,
     withCredentials: true
 })
-
+api.post('http://localhost:3000/login', {
+  email: 'jake1@boisecodeworks.com',
+  password: 'testing123'
+})
 
 //the store is like a service.
 //this service will be talking to the api.
@@ -41,6 +46,33 @@ export default {
             api.get('boards/' + id).then( res => {
                 state.board = res.data.data
             }).catch(handleError)
-        }
+        },
+        createBoard(board) {
+      api.post('boards/',board)
+        .then(res => {
+          this.getBoards()
+        })
+        .catch(handleError)
+    },
+    removeBoard(board) {
+      api.delete('boards/'+board._id)
+        .then(res => {
+          this.getBoards()
+        })
+        .catch(handleError)
+    },
+    initAuth: function(){
+      axios.get('/authenticate').then(function(res){
+        console.log(res)
+        
+        store.state.user= res.data.data
+        
+        
+      }).catch(function(error){
+               router.push('/login/')
+
+        
+      })
+    }
     } 
 }

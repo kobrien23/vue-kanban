@@ -5,6 +5,8 @@ import Login from 'components/Login'
 import Register from 'components/Register'
 import Wall from 'components/Wall'
 import AddBoard from 'components/AddBoard'
+import Board from 'components/Board'
+import Boards from 'components/Boards'
 
 Vue.use(Router)
 
@@ -35,10 +37,20 @@ export default new Router({
       name: 'AddBoard',
       component: AddBoard
     },
-             {
+    {
       path: '*',
       // name: 'Wall',
       Redirect: '/login'
+    },
+    {
+      path: '/boards',
+      name: 'Boards',
+      component: Boards
+    },
+    {
+      path: '/boards/:id',
+      name: 'Board',
+      component: Board
     }
   ]
 })
