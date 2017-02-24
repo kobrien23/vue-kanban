@@ -2,9 +2,9 @@
   <div class="AddBoard">
     <h1>{{ msg }}</h1>
 <form @submit.prevent="addBoard" >
-Board Title: <input type="text" v-model="boardTitle" required>
+Board Name: <input type="text" v-model="boardName" required>
 <br>
-<button type="submit">add board</button>
+<button type="submit">Add Bboard</button>
 </form>
 
   </div>
@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Add Board',
-      boardTitle: ''
+      boardName: ''
     }
   },
   mounted: function(){
@@ -25,8 +25,8 @@ export default {
 methods: {
   addBoard: function()
   {
-    console.log("Inside of the add board method with: ",this.boardTitle);
-
+    console.log("Inside of the add board method with: ",this.boardName);
+    this.$root.$data.store.actions.createBoard(this.boardName)
 
 
 }

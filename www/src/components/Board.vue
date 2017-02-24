@@ -1,6 +1,7 @@
 <template>
   <div> 
-    Active Board: {{board}}
+    <h1>You are in the individual board component</h1>
+    <h3>Active Board: {{this.$root.store.state.activeBoard.name}}<h3>
   </div>
 </template>
 
@@ -8,11 +9,11 @@
 export default {
   name: 'board',
   mounted(){
-    this.$root.$data.store.actions.getBoard(this.$route.params.id)
+    this.$root.store.actions.getBoard(this.$route.params.id)
   },
   computed:{
     board(){
-      return this.$root.$data.store.state.activeBoard
+      return this.$root.store.state.activeBoard
     }
   }
 }

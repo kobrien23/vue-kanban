@@ -5,7 +5,7 @@
         <!--This is where the v-for goes for the boards-->
         <!--This is raw data: {{this.$root.store.state.boards}}-->
         <h4>Todo: Need to add button to create board here.</h4>
-        <div class="board" v-for="board in this.$root.store.state.boards"><router-link :to="'login'">{{board}}</router-link></div>
+        <div class="board" v-for="board in this.$root.store.state.boards"><router-link :to="'boards/'+board._id">{{board.name}}</router-link></div>
     </ul>
   </div>
 </template>

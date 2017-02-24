@@ -46,11 +46,17 @@ export default {
         },
         getBoard(id) {
             api.get('boards/' + id).then(res => {
-                state.board = res.data.data
+                state.activeBoard = res.data.data
             }).catch(handleError)
         },
-        createBoard(board) {
-            api.post('boards/', board)
+        createBoard(boardName) {
+            console.log("In createBoard with: ", boardName)
+            //construct the new board object to post.
+            let obj_newBoard = {}
+            obj_newBoard.name = boardName;
+            obj_newBoard.user = state.user._id;
+            console.info(obj_newBoard)
+            api.post('boards/', obj_newBoard)
                 .then(res => {
                     this.getBoards()
                 })

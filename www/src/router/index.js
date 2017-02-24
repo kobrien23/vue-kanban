@@ -38,11 +38,6 @@ export default new Router({
       component: AddBoard
     },
     {
-      path: '*',
-      // name: 'Wall',
-      Redirect: '/login'
-    },
-    {
       path: '/boards',
       name: 'Boards',
       component: Boards
@@ -51,6 +46,11 @@ export default new Router({
       path: '/boards/:id',
       name: 'Board',
       component: Board
-    }
+    },
+    {
+      path: '*',
+      // name: 'Wall',
+      Redirect: '/login'
+    },
   ]
 })
