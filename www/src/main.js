@@ -16,7 +16,7 @@ window.axios = axios.create({
 
 const store_old = {
   state: {
-    user: {},
+    user: {},   
     boards: {
     },
     board: {},
