@@ -1,6 +1,7 @@
 //This is the new_store-- in the store folder 
 
 import axios from 'axios'
+import router from './../router'
 
 let api = axios.create({
     baseURL: 'http://localhost:3000/api/',
@@ -19,18 +20,15 @@ let api = axios.create({
 let state = {
     user: {},
     boards: [],
-    cards:[],
-    lists:[],
-    activeLists:[],
+    cards: [],
+    lists: [],
+    activeLists: [],
     activeBoard: {},
     error: {}
 }
-
 let handleError = (err) => {
     state.error = err
 }
-
-
 export default {
     //ALL data lives in the state.  
     state,
@@ -77,17 +75,11 @@ export default {
             console.info("initAuth inside new store triggered.")
             //   axios.get('/authenticate').then(function(res){
             api.get('authenticate').then(function (res) {
-
-                console.log("This is res: ",res)
-
+                console.log("This is res: ", res)
                 state.user = res.data.data
-
-
             }).catch(function (error) {
                 console.log("in catch.")
                 // router.push('/login/')
-
-
             })
         },
         // start of list functions/methods
@@ -97,16 +89,45 @@ export default {
                 console.log('activelists array', state.lists)
             }).catch(handleError)
         },
-     
-
         loadCurrentList(id) {
             console.log("In load current list with", id)
-            api.get('boards/'+id+'/lists').then(res => {
+            api.get('boards/' + id + '/lists').then(res => {
                 state.activeLists = res.data.data
             }).catch(handleError)
         },
+        loginUser: function (email, password) {
+            //console.log("In loginUser action in the store.")
+            //create the user object.
+            let user = {
+                email: email,
+                password: password
+            }
+            //post the user object to the login route. 
+            //take the response and place it in the user portion of the store.
+
+            api.post('/login/', user).then(function (res) {
+                console.log("Returned response object from login: ", res.data)
+                if (!res.data.data) {
+                    console.log("type slower next time!")
+                }
+                else {
+                    state.user = res.data.data
+                    console.log("Login successful -- Id of the user: ", res.data.data._id)
+                    router.push('/wall')
+                }
+            }).catch(function (error) { console.error(error) })
+        },
+        checkAuth: function () {
+            if (!!state.user._id) {
+                return true
+            } else {
+                router.push('/login/')
+                return false
+            }
+            // this only returns true or false if they are logged in
+        },
 
 
-//bottom of actions
+        //put any more actions here.
     }
 }

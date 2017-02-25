@@ -22,9 +22,8 @@
       }
     },
     mounted: function () {
-      // this.$root.$data.service.checkAuth()
+      this.$root.$data.store.actions.checkAuth()
       this.$root.$data.store.actions.getBoards()
-
     }
   }
 

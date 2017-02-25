@@ -7,7 +7,9 @@
     <input v-model="name">
   </form>
     <h3> All lists </h3>
-    {{this.$root.store.state.activeLists}}
+    <!--{{this.$root.store.state.activeLists}}-->
+    <hr>
+    <div v-for="list in this.$root.store.state.activeLists">{{list.name}}</div>
     <!--<div v-for="list in this.$root.store.state.activeLists" > {{activeList.name}}  {{activeList.boardId}} </div>-->
 <hr>
 <div> </div>

@@ -30,6 +30,7 @@ schema.pre('save', function (next) {
 });
 
 schema.methods.validatePassword = function (password) {
+  //OQ: what is ment by return a new Promise? 
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, this.password, function (err, isMatch) {
       if (err || !isMatch) {
