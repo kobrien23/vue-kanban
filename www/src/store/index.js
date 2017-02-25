@@ -20,6 +20,7 @@ let api = axios.create({
 let state = {
     user: {},
     boards: [],
+    userBoards: [], //this array hold the boads created by the current user.
     cards: [],
     lists: [],
     activeLists: [],
@@ -38,11 +39,19 @@ export default {
     //add board, edit board, delete task methods go here.
     //in the .then you update the state.
     actions: {
-        // board get methods
+        // this method return all boards.
         getBoards() {
             console.log("in get boards in the new store")
             api.get('boards').then(res => {
                 state.boards = res.data.data
+            }).catch(handleError)
+        },
+        getUserBoards(id) {
+            //This function returns the boards created by user 'id'.
+            //we built a custom route for this, userboards, in user-routes. 
+            console.log("In get user boards in the new store")
+            api.get('userboards/'+id).then(res => {
+                state.userBoards = res.data.data
             }).catch(handleError)
         },
         getBoard(id) {

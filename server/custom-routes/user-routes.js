@@ -36,6 +36,22 @@ export default {
     }
   },
 
+  userBoards: {
+    path: '/userboards/:id',
+    reqType: 'get',
+    method(req, res, next){
+      console.log("in userboards")
+      let action = 'Return an array of boards created by a particular user.'
+      // Boards is the name of the model up top, we are using that schema.
+      Boards.find({user: req.params.id})
+        .then(boards => {
+          // the 'boards' below is the actual array returned by the call
+          res.send(handleResponse(action, boards))
+        }).catch(error => {
+          return next(handleResponse(action, null, error))
+        })
+    }
+  },
 
   }
 

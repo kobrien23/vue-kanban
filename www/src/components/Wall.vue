@@ -1,15 +1,23 @@
 <template>
   <div class="Wall">
     <h1>{{ msg }}</h1>
-    <!--<h1>User Object: {{this.$root.store.state.user}}</h1>-->
     <!--This is where the v-for goes for the boards-->
     <!--This is raw data: {{this.$root.store.state.boards}}-->
     <h4><router-link :to="'/addboard'">Create new board</router-link></h4>
+
+    <h3>All Boards shown here for debugging purposes.</h3>
     <div class="board" v-for="board in this.$root.store.state.boards">
       <router-link :to="'/board/'+board._id">{{board.name}}</router-link>
       <span @click="$root.store.actions.removeBoard(board)">  x</span></li>
     </div>
-    <!--</ul>-->
+    <hr>
+
+    <h3>User Id: {{this.$root.store.state.user._id}}</h3>
+    <div class="userBoard" v-for="board in this.$root.store.state.userBoards">
+      <router-link :to="'/board/'+board._id">{{board.name}}</router-link>
+      <span @click="$root.store.actions.removeBoard(board)">  x</span></li>
+    </div>
+
   </div>
 </template>
 
@@ -22,11 +30,11 @@
       }
     },
     mounted: function () {
-      this.$root.$data.store.actions.checkAuth()
+      // this.$root.$data.store.actions.checkAuth()
       this.$root.$data.store.actions.getBoards()
+      this.$root.$data.store.actions.getUserBoards(this.$root.store.state.user._id)
     }
   }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
