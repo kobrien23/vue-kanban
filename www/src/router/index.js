@@ -48,6 +48,11 @@ export default new Router({
       component: Board
     },
     {
+      path: '/board/:id/lists',
+      name: 'Board',
+      component: Board
+    },
+    {
       path: '*',
       // name: 'Wall',
       Redirect: '/login'

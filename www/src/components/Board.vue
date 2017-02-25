@@ -6,10 +6,11 @@
     List 
     <input v-model="name">
   </form>
-    <h3> This board's lists  </h3>
-    <!--{{this.$root.store.state.activeLists}}-->
-    <div v-for="list in this.$root.store.state.activeLists"> {{list.name}}
-    </div>
+    <h3> All lists </h3>
+    {{this.$root.store.state.activeLists}}
+    <!--<div v-for="list in this.$root.store.state.activeLists" > {{activeList.name}}  {{activeList.boardId}} </div>-->
+<hr>
+<div> </div>
   </div>
 </template>
 
@@ -34,6 +35,8 @@ export default {
   },
   mounted(){
     this.$root.store.actions.getBoard(this.$route.params.id)
+    this.$root.store.actions.loadCurrentList(this.$route.params.id)
+    
   },
   computed:{
     board(){

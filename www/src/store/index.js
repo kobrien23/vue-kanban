@@ -93,11 +93,18 @@ export default {
         // start of list functions/methods
         createList(id, obj) {
             api.post('lists/', obj).then(res => {
-                state.activeLists.push(res.data.data)
-                console.log('activelists array', state.activeLists)
+                state.lists.push(res.data.data)
+                console.log('activelists array', state.lists)
             }).catch(handleError)
         },
-    
+     
+
+        loadCurrentList(id) {
+            console.log("In load current list with", id)
+            api.get('boards/'+id+'/lists').then(res => {
+                state.activeLists = res.data.data
+            }).catch(handleError)
+        },
 
 
 //bottom of actions
