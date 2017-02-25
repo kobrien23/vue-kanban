@@ -9,7 +9,7 @@
       <router-link :to="'/board/'+board._id">{{board.name}}</router-link>
       <span @click="$root.store.actions.removeBoard(board)">  x</span></li>
     </div>
-    </ul>
+    <!--</ul>-->
   </div>
 </template>
 
