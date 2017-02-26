@@ -42,7 +42,8 @@ export default {
   },
   computed:{
     board(){
-      return this.$root.store.state.activeBoard
+      console.log("the coputed value have changed.")
+      return this.$root.store.state.activeLists
     }
   }
 }

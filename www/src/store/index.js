@@ -57,6 +57,7 @@ export default {
         getBoard(id) {
             api.get('boards/' + id).then(res => {
                 state.activeBoard = res.data.data
+                console.log("inside get board with id: ", id)
             }).catch(handleError)
         },
         createBoard(boardName) {
@@ -96,6 +97,8 @@ export default {
             api.post('lists/', obj).then(res => {
                 state.lists.push(res.data.data)
                 console.log('activelists array', state.lists)
+                console.log("running getCreateList with",id)
+                this.loadCurrentList(id)
             }).catch(handleError)
         },
         loadCurrentList(id) {
@@ -122,7 +125,6 @@ export default {
                 else {
                     state.user = res.data.data
                     console.log("Login successful -- Id of the user: ", res.data.data._id)
-                    router.push('/wall')
                 }
             }).catch(function (error) { console.error(error) })
         },
